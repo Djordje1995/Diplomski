@@ -20,21 +20,18 @@ import lombok.RequiredArgsConstructor;
 @Entity
 @NoArgsConstructor
 @RequiredArgsConstructor
-public class Examinee {
+public class GroupOfExaminees {
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
   private Long id;
   @NonNull
   private String name;
-  @NonNull
-  private String surname;
-  @NonNull
-  private String jmbg;
+  @ManyToMany(mappedBy = "groups")
+  private List<Examinee> examinees;
   @ManyToMany(cascade = CascadeType.ALL)
-  @JoinTable(name = "examinee_group",
-      joinColumns = @JoinColumn(name = "examinee_id", referencedColumnName = "id"),
-      inverseJoinColumns = @JoinColumn(name = "group_id", referencedColumnName = "id"))
-  private List<GroupOfExaminees> groups;
-  
+  @JoinTable(name = "group_study",
+      joinColumns = @JoinColumn(name = "group_id", referencedColumnName = "id"),
+      inverseJoinColumns = @JoinColumn(name = "study_id", referencedColumnName = "id"))
+  private List<Study> studies;
 }
