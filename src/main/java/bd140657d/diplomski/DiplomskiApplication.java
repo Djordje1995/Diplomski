@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @SpringBootApplication
-@EnableTransactionManagement //generise entitet u bazi od moje klase
+@EnableTransactionManagement
 public class DiplomskiApplication {
 
 	public static void main(String[] args) {

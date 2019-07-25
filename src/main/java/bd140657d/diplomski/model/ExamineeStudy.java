@@ -5,12 +5,10 @@ import javax.persistence.Entity;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
 
 @Data
 @Entity
 @NoArgsConstructor
-@RequiredArgsConstructor
 public class ExamineeStudy {
 
   @EmbeddedId
