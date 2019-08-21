@@ -23,5 +23,7 @@ public class User {
   private String email;
   @NonNull
   private String password;
+  @NonNull
+  private Boolean isAdmin;
   
 }

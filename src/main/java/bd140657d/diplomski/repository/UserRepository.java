@@ -6,6 +6,6 @@ import bd140657d.diplomski.model.User;
 
 public interface UserRepository extends JpaRepository<User, Long>{
 
-  User getUserByEmail(String email);
+  User findByEmail(String email);
   
 }

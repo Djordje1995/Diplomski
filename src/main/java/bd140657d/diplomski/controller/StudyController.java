@@ -7,21 +7,20 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import bd140657d.diplomski.request.LoginRequest;
-import bd140657d.diplomski.response.LoginResponse;
-import bd140657d.diplomski.service.LoginService;
+import bd140657d.diplomski.request.InsertStudyRequest;
+import bd140657d.diplomski.service.StudyService;
 
 @CrossOrigin(origins="*")
 @RestController
-@RequestMapping("login")
-public class LoginController {
+@RequestMapping("study")
+public class StudyController {
 
   @Autowired
-  LoginService loginService;
+  StudyService studyService;
   
-  @PostMapping(value = "/validate",  consumes = "application/json", produces = "application/json")
-  public LoginResponse validateCredentials(@RequestBody LoginRequest request) {
-    return loginService.validateCredentials(request);
+  @PostMapping(value = "/insert",  consumes = "application/json")
+  public Boolean validateCredentials(@RequestBody InsertStudyRequest request) {
+    return studyService.insert(request);
   }
   
 }
