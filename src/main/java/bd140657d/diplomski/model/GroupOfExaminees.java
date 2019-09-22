@@ -11,6 +11,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
@@ -29,6 +31,7 @@ public class GroupOfExaminees {
   private String name;
   @ManyToMany(mappedBy = "groups")
   private List<Examinee> examinees;
+  @JsonIgnore
   @ManyToMany(cascade = CascadeType.ALL)
   @JoinTable(name = "group_study",
       joinColumns = @JoinColumn(name = "group_id", referencedColumnName = "id"),

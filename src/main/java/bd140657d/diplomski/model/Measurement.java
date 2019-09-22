@@ -1,6 +1,6 @@
 package bd140657d.diplomski.model;
 
-import java.sql.Time;
+import java.util.Calendar;
 
 import javax.persistence.Entity;
 import javax.persistence.ForeignKey;
@@ -10,8 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -27,15 +27,18 @@ public class Measurement {
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
   private Long id;
-  @NonNull
-  private int serialNumber;
   @Lob
   private String description;
   @NonNull
-  private Time time;
+  private Calendar time;
+  @JsonIgnore
   @ManyToOne
   @JoinColumn(foreignKey = @ForeignKey(name = "fk_measurement_task"))
   @NonNull
   private Task task;
-  
+  @JsonIgnore
+  @ManyToOne
+  @JoinColumn(foreignKey = @ForeignKey(name = "fk_measurement_examinee"))
+  @NonNull
+  private Examinee examinee;
 }

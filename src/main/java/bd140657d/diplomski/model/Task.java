@@ -11,6 +11,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
@@ -27,10 +29,12 @@ public class Task {
   private Long id;
   @NonNull
   private String name;
+  @JsonIgnore
   @ManyToOne
   @JoinColumn(foreignKey = @ForeignKey(name = "fk_task_study"))
   @NonNull 
   private Study study;
+  @JsonIgnore
   @OneToMany(mappedBy = "task")
   private List<Measurement> measurements;
   

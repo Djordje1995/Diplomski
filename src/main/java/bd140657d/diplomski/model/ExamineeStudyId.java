@@ -15,6 +15,10 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class ExamineeStudyId implements Serializable{
 
+  /**
+   * 
+   */
+  private static final long serialVersionUID = 2709230416721246731L;
   @NonNull
   private Long examineeId;
   @NonNull
