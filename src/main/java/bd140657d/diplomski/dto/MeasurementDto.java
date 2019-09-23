@@ -4,6 +4,6 @@ import lombok.Data;
 
 @Data
 public class MeasurementDto {
-  private String description;
+  private String comment;
   private String time;
 }
